@@ -3,7 +3,7 @@ import os
 from twilio.rest import Client
 
 endpoint = os.environ["endpoint"]
-api_key = os.environ["api_key"]
+api_key = "<APIKEY>"
 account_sid = os.environ["account_sid"]
 auth_token = os.environ["auth_token"]
 weather_params = {
