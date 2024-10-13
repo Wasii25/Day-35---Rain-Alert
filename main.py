@@ -1,13 +1,14 @@
 import requests
+import os
 from twilio.rest import Client
 
-endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-api_key = "df1c16a6f0ca8d9599929af6de140b63"
-account_sid = "AC5105128009de68144e9649428a332ee6"
-auth_token = "044558c04c3a55e9fe20e91e8d452f81"
+endpoint = os.environ["endpoint"]
+api_key = os.environ["api_key"]
+account_sid = os.environ["account_sid"]
+auth_token = os.environ["auth_token"]
 weather_params = {
-    "lat": 13.000328,
-    "lon": 77.676468,
+    "lat": None,
+    "lon": None,
     "appid": api_key,
     "cnt": 4,
 }
@@ -25,9 +26,9 @@ for hour_data in weather_data["list"]:
 if will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
-        from_="whatsapp:+14155238886",
-        body="Hey Wasiiii!!\nLooks like it might rain today so you better be prepared to get drenched.☔☂️🌂",
-        to="whatsapp:+919742418818"
+        from_="whatsapp:+Twilio Whatsapp number",
+        body="Hey <NAME>!!\nLooks like it might rain today so you better be prepared to get drenched.☔☂️🌂",
+        to="whatsapp:+<YOUR WHATSAPP NUMBER>"
     )
 
 print(message.status)
