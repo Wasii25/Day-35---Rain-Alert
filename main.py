@@ -7,8 +7,8 @@ api_key = os.environ["api_key"]
 account_sid = os.environ["account_sid"]
 auth_token = os.environ["auth_token"]
 weather_params = {
-    "lat": None,
-    "lon": None,
+    "lat": 13.000328,
+    "lon": 77.676468,
     "appid": api_key,
     "cnt": 4,
 }
@@ -26,9 +26,9 @@ for hour_data in weather_data["list"]:
 if will_rain:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
-        from_="whatsapp:+Twilio Whatsapp number",
-        body="Hey <NAME>!!\nLooks like it might rain today so you better be prepared to get drenched.☔☂️🌂",
-        to="whatsapp:+<YOUR WHATSAPP NUMBER>"
+        from_="whatsapp:+14155238886",
+        body="Hey Wasiiii!!\nLooks like it might rain today so you better be prepared to get drenched.☔☂️🌂",
+        to="whatsapp:+919742418818"
     )
 
 print(message.status)
